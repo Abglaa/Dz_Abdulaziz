@@ -11,13 +11,15 @@ const minWorlds = 6;
 
 gmailButton.onclick = () => {
     if(regExp.test(gmailInput.value)){
-        gmailResult.innerHTML = 'everything is correct'
+        gmailResult.innerHTML = 'everything is correct:not ok'
         gmailResult.style.color = 'green'
     } else {
-        gmailResult.innerHTML = 'not correct, here is an example example@gmail.com'
+        gmailResult.innerHTML = 'not correct, here is an example@gmail.com'
         gmailResult.style.color = 'red'
     }
 }
+
+//home work 2
 
 const child_block = document.querySelector(".child_block")
 
