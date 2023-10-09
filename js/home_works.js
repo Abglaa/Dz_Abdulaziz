@@ -1,25 +1,28 @@
 // home work 1 (part 1) gmail.com
+//
 
-const gmailInput = document.querySelector('#gmail_input')
-const gmailButton = document.querySelector('#gmail_button')
-const gmailResult = document.querySelector('#gmail_result')
+const gmailInput = document.querySelector('#gmail_input');
+const gmailButton = document.querySelector('#gmail_button');
+const gmailResult = document.querySelector('#gmail_result');
 
-const regExp = /^[a-zA-Z0-9._%+-]+([a-zA-Z]@gmail.com)$/
+const regExp = /^[a-zA-Z0-9._%+-]+@gmail.com$/;
 
-const maxWorlds = 30;
-const minWorlds = 6;
+const maxChars = 30;
+const minChars = 6;
 
 gmailButton.onclick = () => {
-    if(regExp.test(gmailInput.value)){
-        gmailResult.innerHTML = 'everything is correct:not ok'
-        gmailResult.style.color = 'green'
+    const inputText = gmailInput.value;
+    if (inputText.length >= minChars && inputText.length <= maxChars && regExp.test(inputText)) {
+        gmailResult.innerHTML = 'Все верно: правильный адрес Gmail';
+        gmailResult.style.color = 'green';
     } else {
-        gmailResult.innerHTML = 'not correct, here is an example@gmail.com'
-        gmailResult.style.color = 'red'
+        gmailResult.innerHTML = 'Неверный адрес, пример: example@gmail.com, от 6 до 30 символов';
+        gmailResult.style.color = 'red';
     }
-}
+};
 
-//home work 2
+
+//home work 1 (part 2)
 
 const child_block = document.querySelector(".child_block")
 
