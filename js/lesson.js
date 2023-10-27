@@ -161,3 +161,13 @@ const fetchConsole = () => {
 };
 
 fetchConsole();
+
+//DZ6-2  Так же сделать отдельный fetch запрос на эту ссылку: 'https://jsonplaceholder.typicode.com/posts' и отобразить данные просто в консоли
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(response => response.json())
+//     .then(json => console.log(json))
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => console.table(data))
