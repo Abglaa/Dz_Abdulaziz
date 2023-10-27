@@ -97,3 +97,67 @@ const converterChanges = (elementValue, targetElement, isTrue) => {
 converterChanges(somInput, usdInput, 'som')
 converterChanges(usdInput, somInput, 'usd')
 converterChanges(eurInput, somInput, 'eur')
+
+//CARD SWITCHER
+
+
+const card = document.querySelector('.card');
+const btnPrev = document.querySelector('#btn-prev');
+const btnNext = document.querySelector('#btn-next');
+
+let count = 1;
+
+const switcher = () => {
+    try {
+        fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+            .then(response => response.json())
+            .then(data => {
+                card.innerHTML = `
+                    <p>${data.title}</p>
+                    <p style="color:${data.completed ? 'green' : 'red'}">${data.completed}</p>
+                    <span>${data.id}</span>
+                `;
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+switcher();
+
+let next = () => {
+    if (count === 200) {
+        count = 1;
+    } else {
+        count++;
+    }
+    switcher();
+};
+
+let prev = () => {
+    if (count === 1) {
+        count = 200;
+    } else {
+        count--;
+    }
+    switcher();
+};
+
+btnNext.onclick = next;
+btnPrev.onclick = prev;
+
+const fetchConsole = () => {
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+};
+
+fetchConsole();
