@@ -1,0 +1,22 @@
+.news{
+    background-color: black;
+    margin-top: 80px;
+}
+.news_ul {
+    display: flex;
+    width: 1200px;
+    gap: 30px 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.list{
+    margin-top: 55px;
+    width: 350px;
+    height: 200px;
+    color: orange;
+}
+.list img {
+    width: 330px;
+    height: 100px;
+}
